@@ -1,0 +1,6 @@
+D:\Projects\pcomp_cmd\pcomp_cmd\bin\Debug\pcomp.exe.config
+D:\Projects\pcomp_cmd\pcomp_cmd\bin\Debug\pcomp.exe
+D:\Projects\pcomp_cmd\pcomp_cmd\bin\Debug\pcomp.pdb
+D:\Projects\pcomp_cmd\pcomp_cmd\obj\Debug\pcomp.exe
+D:\Projects\pcomp_cmd\pcomp_cmd\obj\Debug\pcomp.pdb
+D:\Projects\pcomp_cmd\pcomp_cmd\obj\Debug\pcomp_cmd.csprojResolveAssemblyReference.cache
