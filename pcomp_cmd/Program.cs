@@ -6,6 +6,8 @@ using System.Net;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using pcomp;
+
 
 namespace pcomp_cmd
 {
@@ -41,6 +43,11 @@ namespace pcomp_cmd
                     }
                 }
 
+                //pcomp.PFile p1 = new pcomp.PFile(args[0]);
+                //D:\Projects\TestFiles
+                pcomp.PCompare compare = new pcomp.PCompare("D:" + @"\Projects" + @"\TestFiles" + @"\" + "test1.txt", "D:" + @"\Projects" + @"\TestFiles" + @"\" + "test2.txt");
+
+                /*
                 // 경로 및 파일명 셋팅
                 if (false == file1.SetData(args[0])) { return; }
                 if (false == file2.SetData(args[1])) { return; }
@@ -59,6 +66,7 @@ namespace pcomp_cmd
                     // 파일2를 기준으로 파일1와 비교
                     if (false == file2.CompareFile(file1)) { return; }
                 }
+                */
 
             }
             catch (Exception e)
