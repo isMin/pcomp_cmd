@@ -73,13 +73,6 @@ namespace pcomp
         {
             try
             {
-                // 파일 존재여부 체크.
-                if (!fi.Exists)
-                {
-                    Console.WriteLine("해당 파일이 존재하지 않습니다.({0})", fi.FullName);
-                    return false;
-                }
-
                 // 파일을 읽어 Buffer에 저장함(한글 인코딩 문제로 "euc-kr"을 Default 지정).
                 srFile = new StreamReader(fi.FullName, Encoding.GetEncoding("euc-kr"));
 
@@ -111,18 +104,9 @@ namespace pcomp
         {
             try
             {
-                // 파일이 존재하지 않으면 텍스트파일 생성
-                if (!fi.Exists)
-                {
-                    fi.CreateText();
-                }
-                // 텍스트파일이 존재하면 텍스트파일의 내용을 초기화
-                else
-                {
-                    FileStream fsFile = fi.OpenWrite();
-                    fsFile.SetLength(0);
-                    fsFile.Close();
-                }
+                FileStream fsFile = fi.OpenWrite();
+                fsFile.SetLength(0);
+                fsFile.Close();
             }
             catch (Exception e)
             {
@@ -343,9 +327,12 @@ namespace pcomp
                     }
                     else
                     {
-                        // 파일1을 끝까지 다 읽었을 경우
-                        // 라인 수 0으로 초기화, '#####<EMPTY>#####' 문구로 셋팅
-                        iFile1Line = 0;
+                        // 파일1 라인수 0으로 초기화.
+                        if (selectFile == 1) { iFile1Line = 0; }
+                        // 파일2 라인수 0으로 초기화.
+                        else if (selectFile == 2) { iFile2Line = 0; }
+
+                        // '#####<EMPTY>#####' 문구로 셋팅
                         strFileLine = "#####<EMPTY>#####";
                     }
                 } while (!file.GetStreamReader().EndOfStream); // 파일1의 끝까지 반복하여 수행.
