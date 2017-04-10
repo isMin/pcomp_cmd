@@ -324,6 +324,14 @@ namespace pcomp
 
                         // 공백라인 무시.
                         if ("" != strFileLine) { break; }
+
+                        // 마지막라인이 공백라인이면 문구 셋팅 후 break;
+                        if (("" == strFileLine) && file.GetStreamReader().EndOfStream)
+                        {
+                            // '#####<EMPTY>#####' 문구로 셋팅
+                            strFileLine = "#####<EMPTY>#####";
+                            break;
+                        }
                     }
                     else
                     {
