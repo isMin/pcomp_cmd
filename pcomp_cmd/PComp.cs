@@ -6,7 +6,7 @@ using System.IO;
 namespace pcomp
 {
     /// <summary>
-    /// 파일의 정보를 갖고, Create, Init, Read, Write, Check 기능을 하는 클래스.
+    /// 파일의 정보를 갖고, Init, Read, Write, Check 기능을 하는 클래스.
     /// </summary>
     /// <remarks>
     /// created : 2017.04.10.
@@ -75,14 +75,6 @@ namespace pcomp
             {
                 // 파일을 읽어 Buffer에 저장함(한글 인코딩 문제로 "euc-kr"을 Default 지정).
                 srFile = new StreamReader(fi.FullName, Encoding.GetEncoding("euc-kr"));
-
-                // 파일의 내용이 비어있는지 체크.
-                if (null == srFile)
-                {
-                    Console.WriteLine("[{0}] 파일은 비어있습니다.", fi.FullName);
-                    srFile.Close();
-                    return false;
-                }
             }
             catch (Exception e)
             {
