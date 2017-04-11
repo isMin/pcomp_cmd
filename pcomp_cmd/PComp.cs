@@ -204,8 +204,8 @@ namespace pcomp
     /// </remarks>    
     class PCompare
     {
-        int iFile1Line; // 파일1의 라인수.
-        int iFile2Line; // 파일2의 라인수.
+        private int iFile1Line; // 파일1의 라인수.
+        private int iFile2Line; // 파일2의 라인수.
 
         /// <summary>
         /// 두 파일을 읽어 비교한 후 콘솔/텍스트파일로 결과를 출력.
