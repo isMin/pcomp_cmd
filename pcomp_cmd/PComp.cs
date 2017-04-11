@@ -328,6 +328,11 @@ namespace pcomp
                         // 마지막라인이 공백라인이면 문구 셋팅 후 break;
                         if (("" == strFileLine) && file.GetStreamReader().EndOfStream)
                         {
+                            // 파일1 라인수 0으로 초기화.
+                            if (selectFile == 1) { iFile1Line = 0; }
+                            // 파일2 라인수 0으로 초기화.
+                            else if (selectFile == 2) { iFile2Line = 0; }
+
                             // '#####<EMPTY>#####' 문구로 셋팅
                             strFileLine = "#####<EMPTY>#####";
                             break;

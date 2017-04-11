@@ -20,10 +20,8 @@ namespace pcomp_cmd
                 // 입력 매개변수 2개 여부 Check
                 if (args.Length != 2)
                 {
-                    Console.WriteLine("2개의 매개변수만 입력이 가능합니다.(현재 {0}개)", args.Length);
+                    Console.WriteLine("2개의 매개변수만 사용이 가능합니다.(현재 {0}개)", args.Length);
                     Console.WriteLine("예시) pcomp.exe file1 file2 <ENTER>");
-                    Console.WriteLine("※ 파일이름에 띄어쓰기가 있을 경우, 별도의 매개변수로 인식할 수 있습니다.");
-                    Console.WriteLine("   파일이름에서 띄어쓰기를 제거해주세요.");
                     return;
                 }
                 else
@@ -43,7 +41,7 @@ namespace pcomp_cmd
 
                 // 파일비교 객체 생성
                 pcomp.PCompare compare = new pcomp.PCompare();
-                
+
                 // 두 파일 비교
                 if (false == compare.Compare(args[0], args[1])) { return; }
 
