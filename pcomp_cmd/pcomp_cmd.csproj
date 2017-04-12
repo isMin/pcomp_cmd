@@ -7,7 +7,7 @@
     <ProjectGuid>{590F0530-51FA-4EAF-9832-BB37881FE414}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>pcomp</RootNamespace>
+    <RootNamespace>pfile</RootNamespace>
     <AssemblyName>pcomp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PComp.cs" />
+    <Compile Include="PCompare.cs" />
+    <Compile Include="PFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

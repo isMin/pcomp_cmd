@@ -13,5 +13,6 @@ C:\Users\devpower\Documents\pcomp_cmd\pcomp_cmd\obj\Debug\pcomp_cmd.csprojResolv
 C:\Users\devpower\Documents\Projects\pcomp_cmd\pcomp_cmd\bin\Debug\pcomp.exe.config
 C:\Users\devpower\Documents\Projects\pcomp_cmd\pcomp_cmd\bin\Debug\pcomp.exe
 C:\Users\devpower\Documents\Projects\pcomp_cmd\pcomp_cmd\bin\Debug\pcomp.pdb
+C:\Users\devpower\Documents\Projects\pcomp_cmd\pcomp_cmd\obj\Debug\pcomp_cmd.csprojResolveAssemblyReference.cache
 C:\Users\devpower\Documents\Projects\pcomp_cmd\pcomp_cmd\obj\Debug\pcomp.exe
 C:\Users\devpower\Documents\Projects\pcomp_cmd\pcomp_cmd\obj\Debug\pcomp.pdb

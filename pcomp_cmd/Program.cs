@@ -2,7 +2,7 @@
 using System.Text;
 using System.IO;
 using System.Net;
-using pcomp;
+using pcompare;
 
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace pcomp_cmd
 {
-    class PComp
+    class Program
     {
         static void Main(string[] args)
         {
@@ -39,11 +39,8 @@ namespace pcomp_cmd
                 }
 
 
-                // 파일비교 객체 생성
-                pcomp.PCompare compare = new pcomp.PCompare();
-
                 // 두 파일 비교
-                if (false == compare.Compare(args[0], args[1])) { return; }
+                if (false == PCompare.Compare(args[0], args[1])) { return; }
 
             }
             catch (Exception e)
