@@ -18,6 +18,9 @@ namespace pfile
         private FileInfo fi;
         private StreamReader srFile;
         private StreamWriter swFile;
+        private int totalLine; // 파일 전체 라인수
+        public int LineNum { get; set; } // 파일 현재 라인수
+        public string Line { get; set; } // 파일 현재 라인의 내용
 
 
         /// <summary>
@@ -32,7 +35,6 @@ namespace pfile
         {
             // 객체 할당.
             fi = new FileInfo(FullName);
-//Console.WriteLine("fi.FullName: ({0})\nfi.Directory: ({1})\nfi.Name: ({2})\nfi.Extension: ({3})\nfi.DirectoryName: ({4})\nfi.Length: ({5})\nfi.ToString(): ({6})\n", fi.FullName, fi.Directory, fi.Name, fi.Extension, fi.DirectoryName, fi.Length, fi.ToString());
         }
 
 
@@ -76,6 +78,9 @@ namespace pfile
             {
                 // 파일을 읽어 Buffer에 저장함(한글 인코딩 문제로 "euc-kr"을 Default 지정).
                 srFile = new StreamReader(fi.FullName, Encoding.GetEncoding("euc-kr"));
+
+                // 전체 라인 수
+                totalLine = File.ReadAllLines(fi.FullName).Length;
             }
             catch (Exception e)
             {
@@ -120,6 +125,19 @@ namespace pfile
                 return false;
             }
             return true;
+        }
+
+
+        /// <summary>
+        /// 파일 전체 라인수 Get.
+        /// </summary>
+        /// <remarks>
+        /// created : 2017.04.13.
+        /// writer  : 장민수
+        /// </remarks>
+        public int TotalLine
+        {
+            get { return this.totalLine; }
         }
         
 
@@ -223,7 +241,8 @@ namespace pfile
         {
             try
             {
-                swFile.WriteLine(data);
+                swFile.Write(data);
+
             }
             catch (Exception e)
             {
@@ -232,7 +251,62 @@ namespace pfile
             }
             return true;
         }
- 
-    }
 
+
+        /// <summary>
+        /// 파일의 한 줄을 읽어서 멤버변수 Line에 저장(공백라인 무시).
+        /// </summary>
+        /// <returns>true: 정상, false: 비정상.</returns>
+        public bool ReadLine()
+        {
+            try
+            {
+                do
+                {
+                    // 다음 문자로 Peek
+                    this.srFile.Peek();
+
+                    // 파일의 끝이 아니면, 해당 라인을 읽어 string변수에 저장.
+                    if (!this.srFile.EndOfStream)
+                    {
+                        // 라인수 카운트.
+                        this.LineNum++;
+
+                        // 한 라인을 읽어 string변수에 저장.
+                        this.Line = this.srFile.ReadLine();
+
+                        // 공백라인 무시.
+                        if ("" != this.Line) { break; }
+
+                        // 마지막라인이 공백라인이고, 비어있으면
+                        if (("" == this.Line) && this.srFile.EndOfStream)
+                        {
+                            // 파일 현재라인 0으로 초기화.
+                            this.LineNum = 0;
+
+                            // '#####<EMPTY>#####' 문구로 셋팅
+                            this.Line = "#####<EMPTY>#####";
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        // 파일 현재라인 0으로 초기화.
+                        this.LineNum = 0;
+
+                        // '#####<EMPTY>#####' 문구로 셋팅
+                        this.Line = "#####<EMPTY>#####";
+                    }
+                } while (!this.srFile.EndOfStream); // 파일의 끝까지 반복하여 수행.
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("예외 발생:{0}", e.Message);
+                return false;
+            }
+            return true;
+        }
+
+
+    }
 }
