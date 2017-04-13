@@ -12,7 +12,7 @@ namespace pfile
     /// created : 2017.04.10.
     /// writer  : 장민수
     /// </remarks>
-    class PFile
+    public class PFile
     {
         // 파일의 정보
         private FileInfo fi;
